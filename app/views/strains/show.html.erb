@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @strain.name %>
+</p>
+
+<p>
+  <strong>Avaliable:</strong>
+  <%= @strain.avaliable %>
+</p>
+
+<%= link_to 'Edit', edit_strain_path(@strain) %> |
+<%= link_to 'Back', strains_path %>
