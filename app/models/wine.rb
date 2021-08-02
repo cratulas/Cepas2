@@ -4,6 +4,10 @@ class Wine < ApplicationRecord
     accepts_nested_attributes_for :assemblies, reject_if: :all_blank, allow_destroy: true
 
 
+    has_many :relationships
+    has_many :oenologist, through: :relationships, dependent: :destroy
+    accepts_nested_attributes_for :relationships, reject_if: :all_blank, allow_destroy: true
+
     def assembly_percent
         
         assembly_array = []

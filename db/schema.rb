@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_01_014818) do
+ActiveRecord::Schema.define(version: 2021_08_02_030542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,24 @@ ActiveRecord::Schema.define(version: 2021_08_01_014818) do
     t.datetime "updated_at", null: false
     t.index ["strain_id"], name: "index_assemblies_on_strain_id"
     t.index ["wine_id"], name: "index_assemblies_on_wine_id"
+  end
+
+  create_table "oenologists", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "nationality"
+    t.string "workplace"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.bigint "wine_id"
+    t.bigint "oenologist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["oenologist_id"], name: "index_relationships_on_oenologist_id"
+    t.index ["wine_id"], name: "index_relationships_on_wine_id"
   end
 
   create_table "strains", force: :cascade do |t|
@@ -49,8 +67,11 @@ ActiveRecord::Schema.define(version: 2021_08_01_014818) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "score"
   end
 
   add_foreign_key "assemblies", "strains"
   add_foreign_key "assemblies", "wines"
+  add_foreign_key "relationships", "oenologists"
+  add_foreign_key "relationships", "wines"
 end

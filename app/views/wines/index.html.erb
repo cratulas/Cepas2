@@ -18,7 +18,10 @@
     <tr>
       <th>Name</th>
       <th>Strains and Percent %</th>
+      <th>Score of winemakers</th>
+      <th>Oenologiss</th>    
       <th colspan="3"></th>
+  
     </tr>
   </thead>
 
@@ -27,12 +30,16 @@
       <tr>
         <td><%= wine.name %></td>
         <td><%= wine.assembly_percent%> </td>
+        <td><%= wine.score%> </td>
+        <td><%= wine.oenologist.map(&:name).join(' , ') %></td>
+        
+  
 
-       <% if current_user.admin == true%>
+      <% if current_user.admin == true%>
           <td><%= link_to 'Show', wine %></td>
           <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
           <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+      <% end %>
       </tr>
     <% end %>
   </tbody>

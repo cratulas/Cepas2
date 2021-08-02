@@ -16,12 +16,22 @@
     <%= form.text_field :name %>
   </div>
 
- <div class="links">
-    <%= link_to_add_association 'add strain', form, :assemblies, partial: 'assemblies_fields' %>
-  
+  <div class="field">
+    <%= form.label :score_of_winemakers %>
+    <%= form.number_field :score %>
   </div>
+
+  <div class="links">
+    <%= link_to_add_association 'add strain', form, :assemblies, partial: 'assemblies_fields' %>
+  </div>
+
+  <div class="links">
+    <%= link_to_add_association 'add Oneologist', form, :relationships, partial: 'relationships_fields' %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
