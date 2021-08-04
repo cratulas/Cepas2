@@ -11,3 +11,5 @@ Usuario no Admin = {
                     }               
 
 * Para correr test de controller borrar "before_action :authenticate_user!" de application_controller
+
+* Link heroku https://morning-caverns-25611.herokuapp.com/
