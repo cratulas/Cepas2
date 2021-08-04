@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Usuario Admin = {
+                    User = test@test.com
+                    password = 123456
+                }
 
-Things you may want to cover:
+Usuario no Admin = {
+                    User = user@user.com
+                    password = 123456
+                    }               
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Para correr test de controller borrar "before_action :authenticate_user!" de application_controller
